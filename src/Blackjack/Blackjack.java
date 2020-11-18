@@ -23,7 +23,24 @@ public class Blackjack {
             playerName = "Undefined";
         }
 
+
         deck gameDeck = new deck();
+        gameDeck.fullDeck();
+        deck player = new deck();
+        deck dealer = new deck();
+
+        while (bettingMoney>0){
+            playerBet = Integer.parseInt(JOptionPane.showInputDialog("Welcome to Nolan Casino Blackjack " + playerName  +
+                    "\nYou have €" + bettingMoney + ", how much do you want to bet? Bet cannot exceed the money you have."));
+            if(bettingMoney<playerBet){JOptionPane.showMessageDialog(null, "You only have €" + bettingMoney +
+                    "! Please bet an amount lower or equal to this.");
+            }
+
+        }
+
+
+
+
 
     }
 }
