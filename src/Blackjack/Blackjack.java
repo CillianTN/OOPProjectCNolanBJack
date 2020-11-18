@@ -23,6 +23,7 @@ public class Blackjack {
             playerName = "Undefined";
         }
 
-        deck dealerDeck = new deck();
+        deck gameDeck = new deck();
+
     }
 }
