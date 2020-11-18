@@ -22,5 +22,7 @@ public class Blackjack {
         if (playerName.equals(null) || playerName == "") {
             playerName = "Undefined";
         }
+
+        deck dealerDeck = new deck();
     }
 }
