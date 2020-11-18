@@ -19,7 +19,7 @@ public class Blackjack {
         String playerName = JOptionPane.showInputDialog(null, "Please enter your name before continuing.",
                 "Name", JOptionPane.QUESTION_MESSAGE);
 
-        if (playerName.equals(null) || playerName == "") {
+        if (playerName.equals(null) || playerName == " ") {
             playerName = "Undefined";
         }
 
