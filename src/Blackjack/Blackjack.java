@@ -58,6 +58,21 @@ public class Blackjack {
             JOptionPane.showMessageDialog(null,"Dealer's hand is: \n" + dealerHand.hitCard(1).toString() +
                    "\nand\n" + "\n[FACEDOWN CARD]");
 
+            if (JOptionPane.showConfirmDialog(null, "Remember your hand is worth " + playerHand.cardVal() + "." +
+                            "\n\nWould you like to Hit or Stand?" + "\n\nYes for Hit, No for Stand.", "Hit or Stand?",
+                    JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                playerHand.draw(gameDeck);
+                JOptionPane.showMessageDialog(null,"You draw a " + playerHand.toString());
+
+            }
+            else {
+
+
+            }
+
+            {
+
+            }
 
         }
 
