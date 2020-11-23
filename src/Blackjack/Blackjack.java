@@ -32,10 +32,11 @@ public class Blackjack {
 
         deck gameDeck = new deck();
         gameDeck.cardDeck();
-        deck player = new deck();
-        deck dealer = new deck();
+        deck playerHand = new deck();
+        deck dealerHand = new deck();
 
         while (bettingMoney>0){
+            boolean gameStatus = false;
 
             playerBet = Integer.parseInt(JOptionPane.showInputDialog("Welcome to Nolan Casino Blackjack " + playerName  +
                     "\nYou have €" + bettingMoney + ", how much do you want to bet? Bet cannot exceed the money you have."));
@@ -45,12 +46,17 @@ public class Blackjack {
 
             }
             JOptionPane.showMessageDialog(null,"Dealer is shuffling deck.... get ready......");
-            player.draw(gameDeck);
-            dealer.draw(gameDeck);
-            player.draw(gameDeck);
-            dealer.draw(gameDeck);
-            JOptionPane.showMessageDialog(null,player.toString());
 
+            playerHand.draw(gameDeck);
+            playerHand.draw(gameDeck);
+
+            JOptionPane.showMessageDialog(null,"Your hand is: \n" + playerHand.toString() +
+                    "\n\nYour hand is worth " + playerHand.cardVal());
+
+            dealerHand.draw(gameDeck);
+            dealerHand.draw(gameDeck);
+            JOptionPane.showMessageDialog(null,"Dealer's hand is: \n" + dealerHand.hitCard(1).toString() +
+                   "\nand\n" + "\n[FACEDOWN CARD]");
 
 
         }
@@ -61,3 +67,10 @@ public class Blackjack {
 
     }
 }
+
+/* Referred to below sources for creating card classes.
+ * http://math.hws.edu/javanotes/c5/s4.html
+ *
+ *
+ *
+ *************/
