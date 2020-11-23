@@ -1,12 +1,18 @@
 package Blackjack;
 
+import jdk.nashorn.internal.scripts.JO;
+
 import javax.swing.*;
+
 
 public class Blackjack {
     public static void main(String[] args) {
 
         int bettingMoney = 250;
         int playerBet;
+
+
+
 
         JOptionPane.showMessageDialog(null, "BlackJack Rules!\n\n1.      The goal of blackjack is to beat the dealer's hand without going over 21." +
                 "\n\n2.       Kings, Queens and Jacks are worth 10. Aces are worth 1 or 11, whichever makes a better hand." +
@@ -25,16 +31,27 @@ public class Blackjack {
 
 
         deck gameDeck = new deck();
-        gameDeck.fullDeck();
+        gameDeck.cardDeck();
         deck player = new deck();
         deck dealer = new deck();
 
         while (bettingMoney>0){
+
             playerBet = Integer.parseInt(JOptionPane.showInputDialog("Welcome to Nolan Casino Blackjack " + playerName  +
                     "\nYou have €" + bettingMoney + ", how much do you want to bet? Bet cannot exceed the money you have."));
+
             if(bettingMoney<playerBet){JOptionPane.showMessageDialog(null, "You only have €" + bettingMoney +
                     "! Please bet an amount lower or equal to this.");
+
             }
+            JOptionPane.showMessageDialog(null,"Dealer is shuffling deck.... get ready......");
+            player.draw(gameDeck);
+            dealer.draw(gameDeck);
+            player.draw(gameDeck);
+            dealer.draw(gameDeck);
+            JOptionPane.showMessageDialog(null,player.toString());
+
+
 
         }
 
