@@ -36,7 +36,6 @@ public class Blackjack {
         deck dealerHand = new deck();
 
         while (bettingMoney>0){
-            boolean gameStatus = false;
 
             playerBet = Integer.parseInt(JOptionPane.showInputDialog("Welcome to Nolan Casino Blackjack " + playerName  +
                     "\nYou have €" + bettingMoney + ", how much do you want to bet? Bet cannot exceed the money you have."));
@@ -60,30 +59,30 @@ public class Blackjack {
 
             if (JOptionPane.showConfirmDialog(null, "Remember your hand is worth " + playerHand.cardVal() + "." +
                             "\n\nWould you like to Hit or Stand?" + "\n\nYes for Hit, No for Stand.", "Hit or Stand?",
-                    JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION ) {
+                    JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION  ) {
                 playerHand.draw(gameDeck);
                 JOptionPane.showMessageDialog(null,"You draw a " + playerHand.toString());
-            }
-            else{
-                //
-            }
-                if(dealerHand.cardVal()<=17)
+                if(dealerHand.cardVal()<=17 || JOptionPane.YES_NO_OPTION == JOptionPane.YES_OPTION){
                     dealerHand.draw(gameDeck);
-                JOptionPane.showMessageDialog(null,"Dealer decided to hit...." +
-                        "\n\nDealer hand is: " + dealerHand.toString());
-
-
-
-            {
-
-
+                    JOptionPane.showMessageDialog(null,"Dealer decided to Hit...." +
+                            "\n\nDealer hand is: " + dealerHand.toString());}
             }
-            JOptionPane.showMessageDialog(null,"End of dealing......." +
-                    "\n\nDealer Cards: " + dealerHand.toString());
-
-            {
-
+            if(dealerHand.cardVal()>=17){
+                JOptionPane.showMessageDialog(null,"Dealer decided to not hit.");
             }
+            if(playerHand.cardVal()>dealerHand.cardVal()){
+                JOptionPane.showMessageDialog(null,"You win €" + playerBet +
+                        "Your new total balance is now €" + (bettingMoney+playerBet));
+                playerBet+=bettingMoney;
+            }
+            if(dealerHand.cardVal()>playerHand.cardVal()){
+                JOptionPane.showMessageDialog(null,"House wins! You lost €" + playerBet +
+                        "\n\nYour total balance is now €" + (bettingMoney-playerBet));
+                        bettingMoney -= playerBet;
+            }
+
+        }
+
 
         }
 
@@ -92,7 +91,6 @@ public class Blackjack {
 
 
     }
-}
 
 /* Referred to below sources for creating card classes.
  * http://math.hws.edu/javanotes/c5/s4.html
