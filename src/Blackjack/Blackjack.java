@@ -70,8 +70,9 @@ public class Blackjack {
                 if(playerHand.cardVal()>21){
                     JOptionPane.showMessageDialog(null,"BUST");
                     bettingMoney -= playerBet;
-                    playerHand.moveAllToDeck(gameDeck);
-                    dealerHand.moveAllToDeck(gameDeck);
+                    playerHand.cardsToDeck(gameDeck);
+                    dealerHand.cardsToDeck(gameDeck);
+
                     continue;
 
                 }
@@ -80,8 +81,9 @@ public class Blackjack {
                     if(dealerHand.cardVal()>21){
                         JOptionPane.showMessageDialog(null,"Dealer went bust! You win!");
                         bettingMoney += playerBet;
-                        playerHand.moveAllToDeck(gameDeck);
-                        dealerHand.moveAllToDeck(gameDeck);
+                        playerHand.cardsToDeck(gameDeck);
+                        dealerHand.cardsToDeck(gameDeck);
+
                         continue;
                     }
                 }
@@ -116,8 +118,9 @@ public class Blackjack {
                 JOptionPane.showMessageDialog(null,"******Now Showing Player Hands******" +
                         "\n\nPlayer Hand:\n " +playerHand.toString() +
                         "\n\n\nDealer Hand:\n" +dealerHand.toString());
-            playerHand.moveAllToDeck(gameDeck);
-            dealerHand.moveAllToDeck(gameDeck);
+                playerHand.cardsToDeck(gameDeck);
+                dealerHand.cardsToDeck(gameDeck);
+
 
             }
             if(ans==2){
@@ -139,8 +142,9 @@ public class Blackjack {
 
             }
 
-                playerHand.moveAllToDeck(gameDeck);
-                dealerHand.moveAllToDeck(gameDeck);
+            playerHand.cardsToDeck(gameDeck);
+            dealerHand.cardsToDeck(gameDeck);
+
 
 
         }
