@@ -1,19 +1,24 @@
 package Blackjack;
-
+//Deck.java
+/**A class that manages the operations that the deck must do to
+ * @author Cillian Nolan */
 import java.util.ArrayList;
 import java.util.Random;
 
-//Created public class called deck
+/**Created public class called deck*/
+
 public class deck {
-    //Created an array list of cards called Cards.
+    /** Created an array list of cards called Cards.*/
+
     private ArrayList<card> cards;
-    //Made a deck, that grabs cards from Array list.
+    /** Made a deck, that grabs cards from Array list.*/
     public deck() {
         this.cards = new ArrayList<card>();
     }
 
 
-    //For loop creates cards with its type and value.
+    /** For loop creates cards with its type and value.*/
+
     public void cardDeck() {
         for (cardType cardTypes : cardType.values()) {
             for (cardValue cValue : cardValue.values()) {
@@ -26,21 +31,25 @@ public class deck {
     public void addCard(card addCard) {
         this.cards.add(addCard);
     }
-//This would be to remove a card from the deck eg when player or dealer hits.
+/**This would be to remove a card from the deck eg when player or dealer hits.*/
+
     public void removeCard(int i) {
         this.cards.remove(i);
     }
-//Gets card type and value
+/**Gets card type and value of card drawn
+ * @return a card drawn from the deck*/
+
     public card hitCard(int i) {
         return this.cards.get(i);
     }
-//Removes first card from deck.
-    public void draw(deck drawCardsFromDeck) {
+/**Removes first card from deck.*/
+
+public void draw(deck drawCardsFromDeck) {
         this.cards.add(drawCardsFromDeck.hitCard(0));
         drawCardsFromDeck.removeCard(0);
     }
-    //Moves cards to deck at end of hand.
-    // Code sourced from friend.
+    /**Moves cards to deck at end of hand. Code source below*/
+
     public void cardsToDeck(deck moveTo) {
         int thisDeckSize = this.cards.size();
         for (int i = 0; i < thisDeckSize; i++) {
@@ -50,7 +59,8 @@ public class deck {
             this.removeCard(0);
         }
     }
-//Shuffles the deck so cards comd out randomly
+/** Shuffles the deck so cards comd out randomly*/
+
     public void shuffle(){
         //Creates array for shuffling deck
         ArrayList<card> shuffleDeck = new ArrayList<card>();
@@ -65,7 +75,9 @@ public class deck {
         }
         this.cards = shuffleDeck;
     }
-//This translates the card to string so it can be output to show player hand
+
+/**This translates the card to string so it can be output to show player hand
+ * @return the card as a string*/
     public String toString() {
         //Card string is originally blank.
         String strCards = "";
@@ -76,7 +88,8 @@ public class deck {
         }
         return strCards;
     }
-//This turns the cards into a value. E.G. Club Four = 'value' 4.
+/**This turns the cards into a value. E.G. Club Four = 'value' 4.
+ * @return The cards as a value*/
     public int cardVal() {
         int handVal = 0;
 
