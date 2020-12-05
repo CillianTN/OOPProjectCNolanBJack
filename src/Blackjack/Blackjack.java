@@ -198,15 +198,16 @@ public class Blackjack {
                             "\n\nPlayer finished with a total of €" + bettingMoney +
                             "\nAfter beginning with a total of €50.");
                     endGame.close();
-                    JOptionPane.showMessageDialog(null, "Output file complete.");
+                    JOptionPane.showMessageDialog(null, "Receipt printed as blackjackScore.txt.");
 
                     playerHand.cardsToDeck(gameDeck);
                     dealerHand.cardsToDeck(gameDeck);
                     continue;
                 }
                 catch (IOException e){
-                    JOptionPane.showMessageDialog(null,"Error occurred... No file output...");
+                    JOptionPane.showMessageDialog(null,"Error occurred... No file output... Exiting Casino");
                     e.printStackTrace();
+                    System.exit(0);
                 }
                 if (playerBet == 0)
                     JOptionPane.showMessageDialog(null, "You are broke!? You can't play anymore!!" +
