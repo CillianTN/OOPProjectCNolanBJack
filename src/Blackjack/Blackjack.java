@@ -129,10 +129,6 @@ public class Blackjack {
                         JOptionPane.showMessageDialog(null, "Dealer decided to Hit....");
                     }
 
-                    if(dealerHand.cardVal()==playerHand.cardVal()){
-                        JOptionPane.showMessageDialog(null,"You and the dealer tied! This is a push." +
-                                "\n\nNo winner here! Have your money back!","Tie!",JOptionPane.INFORMATION_MESSAGE);
-                    }
 
                     if (playerHand.cardVal() > dealerHand.cardVal()) {
                         JOptionPane.showMessageDialog(null, "You win €" + playerBet +
@@ -185,6 +181,7 @@ public class Blackjack {
                             "House wins! You lost €" + playerBet +
                             "\n\nYour total balance is now €" + (bettingMoney - playerBet));
                     bettingMoney -= playerBet;
+
                     if (playerBet == 0)
                         JOptionPane.showMessageDialog(null, "You are broke!? You can't play anymore!!" +
                                 "\n\nNolan Blackjack Casino Security is now escorting you from the premises......" +
