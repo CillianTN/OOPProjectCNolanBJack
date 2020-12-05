@@ -1,5 +1,8 @@
 package Blackjack;
 import javax.swing.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 /*This is a simple card game made using Java code
 * that allows the user to play Blackjack, otherwise known as 21.*/
 
@@ -176,19 +179,42 @@ public class Blackjack {
                 }
 
 
+
                 if (dealerHand.cardVal() > playerHand.cardVal()) {
                     JOptionPane.showMessageDialog(null,
                             "House wins! You lost €" + playerBet +
                             "\n\nYour total balance is now €" + (bettingMoney - playerBet));
                     bettingMoney -= playerBet;
 
-                    if (playerBet == 0)
-                        JOptionPane.showMessageDialog(null, "You are broke!? You can't play anymore!!" +
-                                "\n\nNolan Blackjack Casino Security is now escorting you from the premises......" +
-                                "\n\nThe wife won't be happy you lost all the shillings.... Best of luck! Thanks for playing.");
-                    System.exit(0);
 
                 }
+                try {
+                    File blackjackScore;
+                    FileWriter endGame = new FileWriter("blackjackScore.txt");
+                    endGame.write("Player age was " + age +
+                            "\nPlayer name was " + playerName +
+                            "\nLast Player Hand was " + playerHand.cardVal() +
+                            "\n\nLast Dealer Hand was " + dealerHand.cardVal() +
+                            "\n\nPlayer finished with a total of €" + bettingMoney +
+                            "\nAfter beginning with a total of €50.");
+                    endGame.close();
+                    JOptionPane.showMessageDialog(null, "Output file complete.");
+
+                    playerHand.cardsToDeck(gameDeck);
+                    dealerHand.cardsToDeck(gameDeck);
+                    continue;
+                }
+                catch (IOException e){
+                    JOptionPane.showMessageDialog(null,"Error occurred... No file output...");
+                    e.printStackTrace();
+                }
+                if (playerBet == 0)
+                    JOptionPane.showMessageDialog(null, "You are broke!? You can't play anymore!!" +
+                            "\n\nNolan Blackjack Casino Security is now escorting you from the premises......" +
+                            "\n\nThe wife won't be happy you lost all the shillings.... Best of luck! Thanks for playing.");
+                System.exit(0);
+
+
 
                 playerHand.cardsToDeck(gameDeck);
                 dealerHand.cardsToDeck(gameDeck);
