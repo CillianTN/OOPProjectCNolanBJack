@@ -1,8 +1,0 @@
-Player age was 19
-Player name was Cillian Nolan
-Last Player Hand was 20
-
-Last Dealer Hand was 8
-
-Player finished with a total of €50
-After beginning with a total of €50.
