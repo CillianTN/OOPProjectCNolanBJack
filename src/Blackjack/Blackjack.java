@@ -227,3 +227,42 @@ public class Blackjack {
 }
 
 
+
+/**CITATIONS HERE!! WOULDN'T LET ME UPLOAD NEW CLASS/
+/* Referred to below sources for creating card classes.
+ * http://math.hws.edu/javanotes/c5/s4.html
+ *
+ *
+ *
+ *******************************************************/
+///*****************************************************
+//*    Code from online coding forum (Discord)
+//*    Title:   Moving Cards back To Deck …..java, lines 39-47
+//*    Author: Freddie Morgan
+//*    Site owner/sponsor:  NA
+//*    Date: 30/11/2020
+//*    Code version:  NA
+//*    Availability: NA
+//*    Modified:  Code refactored (Identifiers renamed)
+//*****************************************************/
+////public void cardsToDeck(deck moveTo) {
+//    int thisDeckSize = this.cards.size();
+//    for (int i = 0; i < thisDeckSize; i++) {
+//        moveTo.addCard(this.hitCard(i));
+//    }
+//    for (int i = 0; i < thisDeckSize; i++) {
+//        this.removeCard(0);
+
+
+//       Code from Stackoverflow (Discord)
+////*    Title: Enum card deck
+////*    Author: user3579225
+////*    Site owner/sponsor:  NA
+////*    Date: 15/11/2020
+////*    Code version:  NA
+////*    Availability: NA
+////     https://stackoverflow.com/questions/23329132/building-a-deck-of-cards-in-java-using-2-different-enums
+////*    Modified:  Code refactored (Identifiers renamed)
+
+//
+
