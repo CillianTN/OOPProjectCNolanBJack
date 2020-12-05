@@ -200,9 +200,3 @@ public class Blackjack {
 }
 
 
-/* Referred to below sources for creating card classes.
- * http://math.hws.edu/javanotes/c5/s4.html
- *
- *
- *
- *************/
